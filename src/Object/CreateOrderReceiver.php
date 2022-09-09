@@ -14,13 +14,16 @@ class CreateOrderReceiver
     private $phone;
 
     /** @var string $zipcode Почтовый индекс */
-    private$zipcode;
+    private $zipcode;
 
     /** @var string $town Город */
     private $town;
 
+    /** @var string $countryCode Код региона */
+    private $countryCode;
+
     /** @var string $regionCode Код региона */
-    private$regionCode;
+    private $regionCode;
 
     /** @var string $address Адрес */
     private $address;
@@ -35,7 +38,13 @@ class CreateOrderReceiver
     private $timeMax;
 
     /** @var string $pvzCode Код пункта самовывоза */
-    private$pvzCode;
+    private $pvzCode;
+
+    /** @var string $lon Координаты долготы */
+    private $lon;
+
+    /** @var string $lat Координаты широты */
+    private $lat;
 
     /** @return string|null Название компании получателя */
     public function getCompany(): ?string
@@ -222,5 +231,47 @@ class CreateOrderReceiver
         $this->pvzCode = $pvzCode;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountryCode(): string
+    {
+        return $this->countryCode;
+    }
+
+    /**
+     * @param string $countryCode
+     */
+    public function setCountryCode(string $countryCode): void
+    {
+        $this->countryCode = $countryCode;
+    }
+
+    /**
+     * @param string $lat
+     * @param string $lon
+     */
+    public function setCoordinates(string $lat, string $lon): void
+    {
+        $this->lat = $lat;
+        $this->lon = $lon;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLon(): string
+    {
+        return $this->lon;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLat(): string
+    {
+        return $this->lat;
     }
 }

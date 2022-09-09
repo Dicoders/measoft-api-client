@@ -485,6 +485,11 @@ class CreateOrderOperation extends AbstractOperation
             $receiver->addChild('time_max', $this->receiver->getTimeMax());
             $town = $receiver->addChild('town', $this->receiver->getTown());
             $town->addChild('regioncode', $this->receiver->getRegionCode());
+            $town->addChild('country', $this->receiver->getCountryCode());
+            $coords = $receiver->addChild('coords');
+            $coords->addChild('lat', $this->receiver->getLat());
+            $coords->addChild('lon', $this->receiver->getLon());
+            $receiver->addChild('coords', $coords);
         }
 
         foreach ($this->items as $item) {
