@@ -7,6 +7,8 @@ use Measoft\Operation\CalculatorOperation;
 use Measoft\Operation\CancelOrderOperation;
 use Measoft\Operation\ItemSearchOperation;
 use Measoft\Operation\CreateOrderOperation;
+use Measoft\Operation\OrderChangedStatusesConfirmOperation;
+use Measoft\Operation\OrderChangedStatusesOperation;
 use Measoft\Operation\OrderSearchOperation;
 use Measoft\Operation\PvzSearchOperation;
 use Measoft\Operation\RegionSearchOperation;
@@ -83,6 +85,12 @@ class MeasoftClient
     public function orderSearch(): OrderSearchOperation
     {
         return new OrderSearchOperation($this->api);
+    }
+
+    /** Поиск статусов заказов */
+    public function ordersChangedStatuses(): OrderChangedStatusesOperation
+    {
+        return new OrderChangedStatusesOperation($this->api);
     }
 
     /** Создание заказа */
