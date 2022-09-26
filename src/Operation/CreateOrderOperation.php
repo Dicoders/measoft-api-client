@@ -498,6 +498,7 @@ class CreateOrderOperation extends AbstractOperation
             $orderItem->addAttribute('quantity', $item->getQuantity());
             $orderItem->addAttribute('mass', $item->getWeight());
             $orderItem->addAttribute('retprice', $item->getRetailPrice());
+            $orderItem->addAttribute('inshprice', $item->getInshPrice());
             $orderItem->addAttribute('VATrate', $item->getVatRate());
             $orderItem->addAttribute('barcode', $item->getBarcode());
             $orderItem->addAttribute('article', $item->getArticle());

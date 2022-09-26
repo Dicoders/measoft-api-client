@@ -16,6 +16,9 @@ class CreateOrderItem
     /** @var float $retailPrice Розничная цена по-умолчанию. При оформлении заказа цена используется та, которая указана в заказе. */
     private $retailPrice;
 
+    /** @var float $inshPrice Объявленная ценность. */
+    private $inshPrice;
+
     /** @var float $weight Масса в килограммах */
     private $weight;
 
@@ -117,6 +120,26 @@ class CreateOrderItem
 
         return $this;
     }
+
+    /**
+     * @return float|null Объявленная ценность
+     */
+    public function getInshPrice(): ?float
+    {
+        return $this->inshPrice;
+    }
+
+    /**
+     * @param float $inshPrice
+     * @return CreateOrderItem
+     */
+    public function setInshPrice(float $inshPrice): self
+    {
+        $this->inshPrice = $inshPrice;
+
+        return $this;
+    }
+
 
     /** @return float|null Масса в килограммах */
     public function getWeight(): ?float

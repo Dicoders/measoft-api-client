@@ -22,6 +22,9 @@ class Item extends AbstractObject
     /** @var float $retailPrice Розничная цена по-умолчанию. При оформлении заказа цена используется та, которая указана в заказе. */
     protected $retailPrice;
 
+    /** @var float $inshPrice Оценочная стоимость */
+    protected $inshPrice;
+
     /** @var float $purchasePrice Закупочная цена */
     protected $purchasePrice;
 
@@ -81,6 +84,7 @@ class Item extends AbstractObject
             'article'          => self::extractXmlValue($xml, 'article', $fromNode),
             'barcode'          => self::extractXmlValue($xml, 'barcode', $fromNode),
             'retailPrice'      => self::extractXmlValue($xml, 'retprice', $fromNode, 'float'),
+            'inshPrice'        => self::extractXmlValue($xml, 'inshprice', $fromNode, 'float'),
             'purchasePrice'    => self::extractXmlValue($xml, 'purchprice', $fromNode, 'float'),
             'weight'           => self::extractXmlValue($xml, ['node' => 'weight', 'attr' => 'mass'], $fromNode, 'float'),
             'length'           => self::extractXmlValue($xml, 'length', $fromNode, 'float'),
@@ -129,6 +133,14 @@ class Item extends AbstractObject
     public function getRetailPrice(): ?float
     {
         return $this->retailPrice;
+    }
+
+    /**
+     * @return float
+     */
+    public function getInshPrice(): float
+    {
+        return $this->inshPrice;
     }
 
     /** @return float|null Закупочная цена */
